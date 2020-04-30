@@ -10,9 +10,6 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -38,10 +35,18 @@
 
         <section class="px-8">
             <main class="container mx-auto">
+                <x-errors/>
                 @yield('content')
             </main>
         </section>
     </div>
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
+
+    <script>
+        $('div[role="alert"]').delay(2000).fadeOut(2000);
+    </script>
 </body>
 
 </html>
