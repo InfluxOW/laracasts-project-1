@@ -16,7 +16,9 @@
                 <p class="font-sm">Joined {{ $user->created_at->diffForHumans() }}</p>
             </div>
             <div class="flex">
-                <a href="" class="rounded-full border border-gray-300 py-2 px-4 text-black text-xs">Edit Profile</a>
+                @can('update', $user)
+                    <a href="{{ route('profiles.edit', $user) }}" class="rounded-full border border-gray-300 py-2 px-4 text-black text-xs">Edit Profile</a>
+                @endcan
                 <x-button-follow :user='$user'/>
             </div>
         </div>
@@ -24,5 +26,5 @@
         <p class="text-sm">just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text</p>
     </header>
 
-    <x-timeline :tweets='$user->tweets'/>
+    <x-timeline :tweets="$user->tweets"/>
 </x-app>

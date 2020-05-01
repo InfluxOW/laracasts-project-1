@@ -10,7 +10,7 @@ class FollowsController extends Controller
 {
     public function store(User $user)
     {
-        Auth::user()->toggleFollow($user);
+        currentUser()->toggleFollow($user);
 
         return back();
     }

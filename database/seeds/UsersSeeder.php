@@ -1,9 +1,8 @@
 <?php
 
-use App\Tweet;
 use Illuminate\Database\Seeder;
 
-class TweetsSeeder extends Seeder
+class UsersSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +11,7 @@ class TweetsSeeder extends Seeder
      */
     public function run()
     {
-        factory(Tweet::class, 20)->create();
+        factory(App\User::class, 4)->create();
+        factory(App\User::class)->states('admin')->create();
     }
 }

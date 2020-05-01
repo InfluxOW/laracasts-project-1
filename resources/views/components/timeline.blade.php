@@ -1,5 +1,7 @@
 <div class="border border-gray-300 rounded-lg">
-    @foreach ($tweets->load('user') as $tweet)
-        <x-tweet :tweet='$tweet' :loop='$loop'/>
-    @endforeach
+    @forelse ($tweets->load('user', 'user.image') as $tweet)
+        <x-tweet :tweet="$tweet" :loop='$loop'/>
+    @empty
+        <p class="p-4">No tweets yet!</p>
+    @endforelse
 </div>

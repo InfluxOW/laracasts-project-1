@@ -14,16 +14,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::view('/', 'welcome');
+
+Route::middleware('auth')->group(function () {
+    Route::resource('tweets', 'TweetsController')->only('store', 'index');
+    Route::resource('profiles', 'ProfilesController')->only('show', 'edit', 'update')->parameters([
+        'profiles' => 'user:username'
+    ]);
+    Route::resource('profiles.follow', 'FollowsController')->only('store')->parameters([
+        'profiles' => 'user:username'
+    ]);
 });
 
 Auth::routes();
-
-Route::resource('tweets', 'TweetsController')->only('store', 'index');
-Route::resource('profiles', 'ProfilesController')->only('show')->parameters([
-    'profiles' => 'user:name'
-]);
-Route::resource('profiles.follow', 'FollowsController')->only('store')->parameters([
-    'profiles' => 'user:name'
-]);

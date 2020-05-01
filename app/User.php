@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'username',
     ];
 
     /**
@@ -46,6 +46,11 @@ class User extends Authenticatable
         return $this->hasMany(Tweet::class)->latest();
     }
 
+    public function image()
+    {
+        return $this->hasOne('App\Image');
+    }
+
     //
 
     public function timeline()
@@ -57,6 +62,6 @@ class User extends Authenticatable
 
     public function getAvatarAttribute()
     {
-        return 'https://api.adorable.io/avatars/200/abott@adorable' . $this->email;
+        return $this->image ? $this->image->url : 'https://api.adorable.io/avatars/200/abott@adorable' . $this->email;
     }
 }
