@@ -1,8 +1,7 @@
-@extends('layouts.app')
-
-@section('content')
+<x-app>
 
     @include('tweets._publish-tweet-panel')
     <x-timeline :tweets='$tweets'/>
 
-@endsection
+</x-app>
+

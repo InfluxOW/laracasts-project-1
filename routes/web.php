@@ -24,3 +24,6 @@ Route::resource('tweets', 'TweetsController')->only('store', 'index');
 Route::resource('profiles', 'ProfilesController')->only('show')->parameters([
     'profiles' => 'user:name'
 ]);
+Route::resource('profiles.follow', 'FollowsController')->only('store')->parameters([
+    'profiles' => 'user:name'
+]);

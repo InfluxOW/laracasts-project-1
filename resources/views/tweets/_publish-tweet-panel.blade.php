@@ -5,7 +5,7 @@
     <hr class="my-4">
     <footer class="flex justify-between">
         <img src="{{ Auth::user()->avatar }}" alt="" class="rounded-full mr-2" width="50" height="50">
-        {{ Form::submit('Tweet', ['class' => 'bg-blue-500 rounded-lg shadow py-2 px-4 text-white']) }}
+        {{ Form::button('Tweet', ['class' => 'bg-blue-500 rounded-lg shadow py-2 px-4 text-white', 'type' => 'submit']) }}
     </footer>
     {!! Form::close() !!}
 </div>
