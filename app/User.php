@@ -37,28 +37,34 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    // Relations
+
     public function tweets()
     {
         return $this->hasMany(Tweet::class);
     }
 
+    public function follows()
+    {
+        return $this->belongsToMany(User::class, 'follows', 'user_id', 'following_user_id')->withTimestamps();
+    }
+
+    //
+
     public function timeline()
     {
-        return Tweet::where('user_id', $this->id)->latest()->get();
+        $ids = $this->follows()->pluck('id')->add($this->id);
+
+        return Tweet::whereIn('user_id', $ids)->latest()->get();
     }
 
     public function getAvatarAttribute()
     {
-        return 'https://api.adorable.io/avatars/50/abott@adorable' . $this->email;
+        return 'https://api.adorable.io/avatars/200/abott@adorable' . $this->email;
     }
 
     public function follow(User $user)
     {
         return $this->follows()->save($user);
-    }
-
-    public function follows()
-    {
-        return $this->belongsToMany(User::class, 'follows', 'user_id', 'following_user_id')->withTimestamps();
     }
 }

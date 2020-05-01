@@ -20,6 +20,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::resource('tweet', 'TweetController')->only('store');
-
-Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('tweets', 'TweetsController')->only('store', 'index');
+Route::resource('profiles', 'ProfilesController')->only('show')->parameters([
+    'profiles' => 'user:name'
+]);

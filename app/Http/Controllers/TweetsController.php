@@ -6,16 +6,23 @@ use App\Http\Requests\TweetValidation;
 use App\Tweet;
 use Illuminate\Http\Request;
 
-class TweetController extends Controller
+class TweetsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $tweets = $request->user()->timeline();
+
+        return view('tweets.index', compact('tweets'));
     }
 
     /**
@@ -38,7 +45,7 @@ class TweetController extends Controller
     {
         $tweet = $request->user()->tweets()->create($request->only(['body']));
 
-        return redirect()->route('home');
+        return redirect()->route('tweets.index');
     }
 
     /**

@@ -1,6 +1,6 @@
 <ul>
     <li>
-        <a class="font-medium text-lg mb-4 block" href="/">
+        <a class="font-medium text-lg mb-4 block" href="{{ route('tweets.index') }}">
             Home
         </a>
     </li>
@@ -30,7 +30,7 @@
         </a>
     </li>
     <li>
-        <a class="font-medium text-lg mb-4 block" href="#">
+        <a class="font-medium text-lg mb-4 block" href="{{ route('profiles.show', Auth::user()) }}">
             Profile
         </a>
     </li>
