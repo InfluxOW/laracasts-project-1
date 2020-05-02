@@ -27,21 +27,30 @@ class ProfilesController extends Controller
 
     public function update(User $user, UserValidation $request)
     {
-        $user->update($request->only('name', 'username', 'email'));
+        $user->update($request->only('name', 'username', 'email', 'description'));
 
         if ($request->hasFile('avatar')) {
             $path = Storage::disk('s3')->put("avatars", $request->file('avatar'), 'public');
 
-            if ($user->image) {
-                Storage::disk('s3')->delete($user->image->path);
-                $user->image->delete();
+            if ($user->avatar_url) {
+                Storage::disk('s3')->delete(parse_url($user->avatar_url, PHP_URL_PATH));
             }
 
-            $image = Image::make([
-                'path' => $path,
-                'url' => Storage::disk('s3')->url($path)
+            $user->update([
+                'avatar_url' => Storage::disk('s3')->url($path)
                 ]);
-            $user->image()->save($image);
+        }
+
+        if ($request->hasFile('banner')) {
+            $path = Storage::disk('s3')->put("banners", $request->file('banner'), 'public');
+
+            if ($user->banner_url) {
+                Storage::disk('s3')->delete(parse_url($user->banner_url, PHP_URL_PATH));
+            }
+
+            $user->update([
+                'banner_url' => Storage::disk('s3')->url($path)
+                ]);
         }
 
         return redirect()->route('profiles.show', compact('user'));

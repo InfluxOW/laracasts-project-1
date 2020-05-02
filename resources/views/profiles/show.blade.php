@@ -1,8 +1,8 @@
 <x-app>
     <header class="mb-6 relative">
         <div class="relative">
-            <img src="/images/default-profile-banner.jpg" alt="" class="mb-2 rounded-lg">
-            <img src="{{ $user->avatar }}"
+            <img src="{{ $user->getBanner() }}" alt="" class="mb-2 rounded-lg">
+            <img src="{{ $user->getAvatar() }}"
                 alt=""
                 class="rounded-full mr-2 absolute bottom-0 transform -translate-x-1/2 translate-y-1/2"
                 style="left: 50%"
@@ -23,7 +23,7 @@
             </div>
         </div>
 
-        <p class="text-sm">just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text</p>
+        <p class="text-sm">{{ $user->description }}</p>
     </header>
 
     <x-timeline :tweets="$user->tweets()->withCount('likes', 'dislikes')->paginate(20)"/>

@@ -4,7 +4,7 @@
 
     <hr class="my-4">
     <footer class="flex justify-between items-center">
-        <img src="{{ currentUser()->avatar }}" alt="" class="rounded-full mr-2" width="50" height="50">
+        <img src="{{ currentUser()->getAvatar() }}" alt="" class="rounded-full mr-2" width="50" height="50">
         {{ Form::button('Tweet', ['class' => 'bg-blue-500 rounded-lg shadow px-10 py-2 text-sm text-white hover:bg-blue-600', 'type' => 'submit']) }}
     </footer>
     {!! Form::close() !!}

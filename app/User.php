@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'username',
+        'name', 'email', 'password', 'username', 'avatar_url', 'banner_url', 'description'
     ];
 
     /**
@@ -46,11 +46,6 @@ class User extends Authenticatable
         return $this->hasMany(Tweet::class)->latest();
     }
 
-    public function image()
-    {
-        return $this->hasOne('App\Image');
-    }
-
     public function likes()
     {
         return $this->hasMany('App\Like');
@@ -65,9 +60,14 @@ class User extends Authenticatable
         return Tweet::withCount('likes', 'dislikes')->whereIn('user_id', $ids)->latest()->paginate(20);
     }
 
-    public function getAvatarAttribute()
+    public function getAvatar()
     {
-        return $this->image ? $this->image->url : 'https://api.adorable.io/avatars/200/abott@adorable' . $this->email;
+        return $this->avatar_url ?? "https://api.adorable.io/avatars/200/abott@adorable{$this->email}";
+    }
+
+    public function getBanner()
+    {
+        return $this->banner_url ?? "https://picsum.photos/seed/{$this->username}/800/270";
     }
 
     // public function setPasswordAttribute($value)
