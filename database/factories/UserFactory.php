@@ -40,6 +40,6 @@ $factory->afterCreating(User::class, function ($user) {
     $followsAmount = random_int(1, User::all()->count());
     $follows = User::inRandomOrder()->take($followsAmount)->where('id', '<>', $user->id)->get();
     $follows->map(function ($follow) use ($user) {
-        return $user->follow($follow);
+        return $user->toggleFollow($follow);
     });
 });

@@ -15,7 +15,7 @@
                 </div>
 
                 @auth
-                    <div class="lg:w-1/5 bg-blue-100 rounded-lg p-4">
+                    <div class="lg:w-1/5">
                         @include('tweets._friends-list')
                     </div>
                 @endauth

@@ -723,5 +723,21 @@ module.exports = {
     transitionDelay: ['responsive'],
   },
   corePlugins: {},
-  plugins: [],
+  theme: {
+    pagination: theme => ({
+        link: 'bg-white px-3 py-1 border-r border-t border-b text-black no-underline',
+        linkActive: 'bg-blue-300 border-blue-200 font-medium',
+        linkSecond: 'rounded-l border-l',
+        linkBeforeLast: 'rounded-r',
+        linkFirst: {
+            '@apply mr-3 pl-5 border-none': {},
+        },
+        linkLast: {
+            '@apply ml-3 pr-5 border-none': {},
+        },
+    })
+},
+  plugins: [
+    require('tailwindcss-plugins/pagination'),
+  ],
 }

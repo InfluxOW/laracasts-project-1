@@ -15,6 +15,7 @@
         {{ Form::password('password', ['class' => 'border border-gray-400 p-2 w-full mb-2']) }}
         {{ Form::label('password_confirmation', 'Password Confirmation', ['class' => 'block uppercase font-medium  text-xs text-gray-700 mb-2']) }}
         {{ Form::password('password_confirmation', ['class' => 'border border-gray-400 p-2 w-full mb-2']) }} --}}
-        {{ Form::button('Submit', ['class' => 'bg-blue-500 shadow py-2 px-4 text-white rounded', 'type' => 'submit']) }}
+        {{ Form::button('Submit', ['class' => 'bg-blue-500 shadow py-2 px-4 text-white rounded mr-4', 'type' => 'submit']) }}
+        <a href="{{ route('profiles.show', $user) }}" class="hover:underline">Cancel</a>
     {!! Form::close() !!}
 </x-app>

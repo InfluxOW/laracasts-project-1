@@ -16,13 +16,14 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 
 <body>
     <div id="app">
         <section class="px-8 py-4">
             <header class="container mx-auto">
-                <img src="/images/logo.png" alt="Tweety" width="140px">
+                <a href="{{ route('tweets.index') }}"><img src="/images/logo.png" alt="Tweety" width="140px"></a>
             </header>
         </section>
 

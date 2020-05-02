@@ -57,11 +57,16 @@ class User extends Authenticatable
     {
         $ids = $this->follows()->pluck('id')->add($this->id);
 
-        return Tweet::whereIn('user_id', $ids)->latest()->get();
+        return Tweet::whereIn('user_id', $ids)->latest()->paginate(20);
     }
 
     public function getAvatarAttribute()
     {
         return $this->image ? $this->image->url : 'https://api.adorable.io/avatars/200/abott@adorable' . $this->email;
     }
+
+    // public function setPasswordAttribute($value)
+    // {
+    //     return $this->attributes['password'] = bcrypt($value);
+    // }
 }

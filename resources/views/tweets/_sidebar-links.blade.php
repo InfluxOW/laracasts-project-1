@@ -1,32 +1,12 @@
-<ul>
+{{-- <ul>
     <li>
         <a class="font-medium text-lg mb-4 block" href="{{ route('tweets.index') }}">
             Home
         </a>
     </li>
     <li>
-        <a class="font-medium text-lg mb-4 block" href="#">
+        <a class="font-medium text-lg mb-4 block" href="{{ route('explore.index') }}">
             Explore
-        </a>
-    </li>
-    <li>
-        <a class="font-medium text-lg mb-4 block" href="#">
-            Notifications
-        </a>
-    </li>
-    <li>
-        <a class="font-medium text-lg mb-4 block" href="#">
-            Messages
-        </a>
-    </li>
-    <li>
-        <a class="font-medium text-lg mb-4 block" href="#">
-            Bookmarks
-        </a>
-    </li>
-    <li>
-        <a class="font-medium text-lg mb-4 block" href="#">
-            Lists
         </a>
     </li>
     <li>
@@ -35,8 +15,42 @@
         </a>
     </li>
     <li>
-        <a class="font-medium text-lg mb-4 block" href="#">
-            More
+        <a class="font-medium text-lg mb-4 block" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+            {{ __('Logout') }}
         </a>
+            {{Form::open(['url' => route('logout'), 'method' => 'POST', 'id' => 'logout-form', 'class' => 'invisible'])}}
+            {{Form::close()}}
     </li>
-</ul>
+</ul> --}}
+
+<div class="overflow-hidden shadow-lg bg-white mb-4 rounded-b-lg rounded-t border-red-light">
+    <div class="flex cursor-pointer border px-4 py-2 text-lg text-gray-700"
+        style="{{ (request()->is('tweets')) ? 'border-left: 4px solid #7AB1FF' : '' }}">
+        <a class="pl-2" href="{{ route('tweets.index') }}">
+            <i class="fas fa-home"></i>
+            Tweets
+        </a>
+    </div>
+    <div class="flex cursor-pointer border px-4 py-2 text-lg text-gray-700"
+        style="{{ (request()->is('profiles') || request()->is('profiles/*')) ? 'border-left: 4px solid #7AB1FF' : '' }}">
+        <a class="pl-2" href="{{ route('profiles.show', Auth::user()) }}">
+            <i class="fas fa-user"></i>
+            Profile
+        </a>
+    </div>
+    <div class="flex cursor-pointer border px-4 py-2 text-lg text-gray-700"
+        style="{{ (request()->is('explore')) ? 'border-left: 4px solid #7AB1FF' : '' }}">
+        <a class="pl-2" href="{{ route('explore.index') }}">
+            <i class="fas fa-search"></i>
+            Explore
+        </a>
+    </div>
+        <div class="flex cursor-pointer border px-4 py-2 text-lg text-gray-700">
+            <div class="pl-2" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                <i class="fas fa-sign-out-alt"></i>
+                {{ __('Logout') }}
+            </div>
+                {{Form::open(['url' => route('logout'), 'method' => 'POST', 'id' => 'logout-form', 'class' => 'invisible'])}}
+                {{Form::close()}}
+        </div>
+</div>

@@ -24,6 +24,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('profiles.follow', 'FollowsController')->only('store')->parameters([
         'profiles' => 'user:username'
     ]);
+    Route::resource('explore', 'ExploreController')->only('index');
 });
 
 Auth::routes();

@@ -11,7 +11,7 @@
         </div>
 
         <div class="flex justify-between items-center mb-6">
-            <div>
+            <div style="max-width: 300px">
                 <h2 class="font-medium text-2xl mb-0">{{ $user->name }}</h2>
                 <p class="font-sm">Joined {{ $user->created_at->diffForHumans() }}</p>
             </div>
@@ -26,5 +26,5 @@
         <p class="text-sm">just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text</p>
     </header>
 
-    <x-timeline :tweets="$user->tweets"/>
+    <x-timeline :tweets="$user->tweets()->paginate(20)"/>
 </x-app>
