@@ -18,6 +18,8 @@ Route::view('/', 'welcome');
 
 Route::middleware('auth')->group(function () {
     Route::resource('tweets', 'TweetsController')->only('store', 'index');
+    Route::post('/tweets/{tweet}/like', 'TweetsController@like')->name('tweets.like');
+    Route::post('/tweets/{tweet}/dislike', 'TweetsController@dislike')->name('tweets.dislike');
     Route::resource('profiles', 'ProfilesController')->only('show', 'edit', 'update')->parameters([
         'profiles' => 'user:username'
     ]);

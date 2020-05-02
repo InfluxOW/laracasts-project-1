@@ -8,6 +8,7 @@
     <div>
         <a href="{{ route('profiles.show', $tweet->user) }}"><h5 class="font-medium mb-4">{{ $tweet->user->name }}</h5></a>
         <p class="text-sm">{{ $tweet->body }}</p>
+        <x-likes :tweet="$tweet"/>
     </div>
 </div>
 

@@ -26,5 +26,5 @@
         <p class="text-sm">just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text just random text</p>
     </header>
 
-    <x-timeline :tweets="$user->tweets()->paginate(20)"/>
+    <x-timeline :tweets="$user->tweets()->withCount('likes', 'dislikes')->paginate(20)"/>
 </x-app>

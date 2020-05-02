@@ -1,11 +1,13 @@
 <x-app>
     @foreach ($users->load('image') as $user)
-        <div class="flex items-center mb-5 hover:bg-gray-200 rounded-lg border border-gray-200">
-            <img src="{{ $user->avatar }}" width="60" class="mr-4 rounded-lg">
-            <div>
-                <a href="{{ route('profiles.show', $user) }}"><h4 class="font-medium">{{ '@' . $user->username }}</h4></a>
+        <a href="{{ route('profiles.show', $user) }}">
+            <div class="flex items-center mb-5 hover:bg-gray-200 rounded-lg border border-gray-200">
+                <img src="{{ $user->avatar }}" width="60" class="mr-4 rounded-lg">
+                <div>
+                    <h4 class="font-medium">{{ '@' . $user->username }}</h4>
+                </div>
             </div>
-        </div>
+        </a>
     @endforeach
 
     {{ $users->links() }}

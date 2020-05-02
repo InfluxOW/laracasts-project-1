@@ -51,13 +51,18 @@ class User extends Authenticatable
         return $this->hasOne('App\Image');
     }
 
+    public function likes()
+    {
+        return $this->hasMany('App\Like');
+    }
+
     //
 
     public function timeline()
     {
         $ids = $this->follows()->pluck('id')->add($this->id);
 
-        return Tweet::whereIn('user_id', $ids)->latest()->paginate(20);
+        return Tweet::withCount('likes', 'dislikes')->whereIn('user_id', $ids)->latest()->paginate(20);
     }
 
     public function getAvatarAttribute()

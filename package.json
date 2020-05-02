@@ -26,6 +26,7 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.13.0",
-        "tailwindcss": "^1.4.0"
+        "tailwindcss": "^1.4.0",
+        "turbolinks": "^5.2.0"
     }
 }
