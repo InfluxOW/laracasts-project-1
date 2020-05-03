@@ -3,7 +3,6 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-
 require('./bootstrap');
 
 window.Vue = require('vue');
@@ -31,5 +30,26 @@ const app = new Vue({
     el: '#app',
 });
 
-var Turbolinks = require("turbolinks")
-Turbolinks.start()
+var Turbolinks = require("turbolinks");
+Turbolinks.start();
+
+window.FilePond = require('filepond');
+window.FilePondPluginImagePreview = require('filepond-plugin-image-preview');
+window.FilePondPluginImageValidateSize = require('filepond-plugin-image-validate-size');
+window.FilePondPluginFileValidateType = require('filepond-plugin-file-validate-type');
+window.FilePondPluginImageCrop = require('filepond-plugin-image-crop');
+window.FilePondPluginImageTransform = require('filepond-plugin-image-transform');
+window.FilePondPluginImageResize  = require('filepond-plugin-image-resize');
+window.FilePondPluginFileEncode  = require('filepond-plugin-file-encode');
+window.FilePondPluginImageExifOrientation   = require('filepond-plugin-image-exif-orientation');
+
+FilePond.registerPlugin(
+    FilePondPluginImagePreview,
+    FilePondPluginImageValidateSize,
+    FilePondPluginFileValidateType,
+    FilePondPluginImageCrop,
+    FilePondPluginImageResize,
+    FilePondPluginImageTransform,
+    FilePondPluginFileEncode,
+    FilePondPluginImageExifOrientation
+);

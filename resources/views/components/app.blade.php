@@ -5,7 +5,7 @@
 
             <div class="lg:flex lg:justify-between">
                 @auth
-                    <div class="lg:w-32">
+                    <div class="lg:w-auto">
                         @include('tweets._sidebar-links')
                     </div>
                 @endauth
@@ -22,4 +22,7 @@
             </div>
         </main>
     </section>
+    <x-slot name="scripts">
+        {{ $scripts ?? '' }}
+    </x-slot>
 </x-master>

@@ -29,6 +29,11 @@ class ProfilesController extends Controller
     {
         $user->update($request->only('name', 'username', 'email', 'description'));
 
+        return redirect()->route('profiles.show', compact('user'));
+    }
+
+    public function imageUpload(Request $request, User $user)
+    {
         if ($request->hasFile('avatar')) {
             $path = Storage::disk('s3')->put("avatars", $request->file('avatar'), 'public');
 
@@ -53,6 +58,6 @@ class ProfilesController extends Controller
                 ]);
         }
 
-        return redirect()->route('profiles.show', compact('user'));
+        return $user;
     }
 }

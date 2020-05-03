@@ -13,7 +13,6 @@
                 <br>
                 <div>
                     {{ Form::button('Submit', ['class' => 'bg-blue-500 shadow py-2 px-4 text-white rounded mt-2 mr-2', 'type' => 'submit']) }}
-                    <a href="{{ route('password.request') }}" class="text-xs text-gray-700">Forgot Your Password?</a>
                 </div>
             {!! Form::close() !!}
         </div>

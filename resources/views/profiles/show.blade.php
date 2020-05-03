@@ -1,7 +1,7 @@
 <x-app>
     <header class="mb-6 relative">
         <div class="relative">
-            <img src="{{ $user->getBanner() }}" alt="" class="mb-2 rounded-lg">
+            <img src="{{ $user->getBanner() }}" alt="" class="mb-2 rounded-lg w-full">
             <img src="{{ $user->getAvatar() }}"
                 alt=""
                 class="rounded-full mr-2 absolute bottom-0 transform -translate-x-1/2 translate-y-1/2"
@@ -17,7 +17,7 @@
             </div>
             <div class="flex">
                 @can('update', $user)
-                    <a href="{{ route('profiles.edit', $user) }}" class="rounded-full border border-gray-300 py-2 px-4 text-black text-xs">Edit Profile</a>
+                    <a href="{{ route('profiles.edit', $user) }}" class="rounded-full border border-gray-300 py-2 px-4 text-black text-xs" id="edit">Edit Profile</a>
                 @endcan
                 <x-button-follow :user='$user'/>
             </div>

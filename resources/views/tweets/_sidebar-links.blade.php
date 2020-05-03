@@ -1,28 +1,3 @@
-{{-- <ul>
-    <li>
-        <a class="font-medium text-lg mb-4 block" href="{{ route('tweets.index') }}">
-            Home
-        </a>
-    </li>
-    <li>
-        <a class="font-medium text-lg mb-4 block" href="{{ route('explore.index') }}">
-            Explore
-        </a>
-    </li>
-    <li>
-        <a class="font-medium text-lg mb-4 block" href="{{ route('profiles.show', currentUser()) }}">
-            Profile
-        </a>
-    </li>
-    <li>
-        <a class="font-medium text-lg mb-4 block" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-            {{ __('Logout') }}
-        </a>
-            {{Form::open(['url' => route('logout'), 'method' => 'POST', 'id' => 'logout-form', 'class' => 'invisible'])}}
-            {{Form::close()}}
-    </li>
-</ul> --}}
-
 <div class="overflow-hidden shadow-lg bg-white mb-4 rounded-b-lg rounded-t border-red-light">
     <div class="flex cursor-pointer border px-4 py-2 text-lg text-gray-700"
         style="{{ (request()->is('tweets')) ? 'border-left: 4px solid #7AB1FF' : '' }}">

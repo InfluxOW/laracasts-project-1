@@ -26,13 +26,12 @@
                 <a href="{{ route('tweets.index') }}"><img src="/images/logo.png" alt="Tweety" width="140px"></a>
             </header>
         </section>
-
         {{ $slot }}
     </div>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-
+    {{ $scripts ?? '' }}
     <script>
         // $('div[role="alert"]').delay(2000).fadeOut(2000);
     </script>
