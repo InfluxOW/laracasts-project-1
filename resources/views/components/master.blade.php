@@ -17,16 +17,12 @@
     <!-- Styles -->
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/menu.css') }}" rel="stylesheet">
     {{ $styles ?? '' }}
 </head>
 
 <body>
-    <div id="app">
-        <section class="px-8 py-4">
-            <header class="container mx-auto">
-                <a href="{{ route('tweets.index') }}"><img src="/images/logo.png" alt="Tweety" width="140px"></a>
-            </header>
-        </section>
+    <div id="app" class="mt-4">
         {{ $slot }}
     </div>
 

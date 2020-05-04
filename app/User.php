@@ -51,6 +51,16 @@ class User extends Authenticatable
         return $this->hasMany('App\Like');
     }
 
+    public function avatar()
+    {
+        return $this->hasOne('App\Avatar');
+    }
+
+    public function banner()
+    {
+        return $this->hasOne('App\Banner');
+    }
+
     //
 
     public function timeline()
@@ -62,12 +72,12 @@ class User extends Authenticatable
 
     public function getAvatar()
     {
-        return $this->avatar_url ?? "https://api.adorable.io/avatars/200/abott@adorable{$this->username}";
+        return $this->avatar->url ?? "https://api.adorable.io/avatars/200/abott@adorable{$this->username}";
     }
 
     public function getBanner()
     {
-        return $this->banner_url ?? "https://picsum.photos/seed/{$this->username}/800/270";
+        return $this->banner->url ?? "https://picsum.photos/seed/{$this->username}/800/270";
     }
 
     // public function setPasswordAttribute($value)

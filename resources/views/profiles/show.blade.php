@@ -23,7 +23,7 @@
             </div>
         </div>
 
-        <p class="text-sm">{{ $user->description }}</p>
+        <p class="text-sm text-center {{ $user->description ? '' : 'text-gray-500' }}">{{ $user->description ?? 'No information' }}</p>
     </header>
 
     <x-timeline :tweets="$user->tweets()->withCount('likes', 'dislikes')->paginate(20)"/>

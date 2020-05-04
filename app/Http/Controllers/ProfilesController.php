@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Avatar;
+use App\Banner;
 use App\Http\Requests\UserValidation;
-use App\Image;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -37,25 +38,25 @@ class ProfilesController extends Controller
         if ($request->hasFile('avatar')) {
             $path = Storage::disk('s3')->put("avatars", $request->file('avatar'), 'public');
 
-            if ($user->avatar_url) {
-                Storage::disk('s3')->delete(parse_url($user->avatar_url, PHP_URL_PATH));
+            if ($user->avatar) {
+                Storage::disk('s3')->delete(parse_url($user->avatar->url, PHP_URL_PATH));
+                $user->avatar->delete();
             }
 
-            $user->update([
-                'avatar_url' => Storage::disk('s3')->url($path)
-                ]);
+            $avatar = Avatar::make(['url' => Storage::disk('s3')->url($path)]);
+            $user->avatar()->save($avatar);
         }
 
         if ($request->hasFile('banner')) {
             $path = Storage::disk('s3')->put("banners", $request->file('banner'), 'public');
 
-            if ($user->banner_url) {
-                Storage::disk('s3')->delete(parse_url($user->banner_url, PHP_URL_PATH));
+            if ($user->banner) {
+                Storage::disk('s3')->delete(parse_url($user->banner->url, PHP_URL_PATH));
+                $user->banner->delete();
             }
 
-            $user->update([
-                'banner_url' => Storage::disk('s3')->url($path)
-                ]);
+            $banner = Banner::make(['url' => Storage::disk('s3')->url($path)]);
+            $user->banner()->save($banner);
         }
 
         return $user;
