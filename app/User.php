@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'username', 'avatar_url', 'banner_url', 'description'
+        'name', 'email', 'password', 'username', 'avatar_url', 'banner_url', 'description', 'avatar_id', 'banner_id'
     ];
 
     /**
@@ -53,12 +53,12 @@ class User extends Authenticatable
 
     public function avatar()
     {
-        return $this->hasOne('App\Avatar');
+        return $this->morphOne('App\Image', 'imageable')->where('type', 'avatar');
     }
 
     public function banner()
     {
-        return $this->hasOne('App\Banner');
+        return $this->morphOne('App\Image', 'imageable')->where('type', 'banner');
     }
 
     //

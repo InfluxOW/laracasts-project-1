@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Avatar;
 use App\Banner;
 use App\Http\Requests\UserValidation;
+use App\Image;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -43,8 +44,11 @@ class ProfilesController extends Controller
                 $user->avatar->delete();
             }
 
-            $avatar = Avatar::make(['url' => Storage::disk('s3')->url($path)]);
+            $avatar = Image::make(['url' => Storage::disk('s3')->url($path), 'type' => 'avatar']);
             $user->avatar()->save($avatar);
+
+            // $avatar = Avatar::make(['url' => Storage::disk('s3')->url($path)]);
+            // $user->avatar()->save($avatar);
         }
 
         if ($request->hasFile('banner')) {
@@ -55,8 +59,11 @@ class ProfilesController extends Controller
                 $user->banner->delete();
             }
 
-            $banner = Banner::make(['url' => Storage::disk('s3')->url($path)]);
+            $banner = Image::make(['url' => Storage::disk('s3')->url($path), 'type' => 'banner']);
             $user->banner()->save($banner);
+
+            // $banner = Banner::make(['url' => Storage::disk('s3')->url($path)]);
+            // $user->banner()->save($banner);
         }
 
         return $user;

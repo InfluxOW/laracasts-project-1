@@ -17,4 +17,9 @@ class Tweet extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function images()
+    {
+        return $this->morphMany('App\Image', 'imageable')->where('type', 'image');
+    }
 }
