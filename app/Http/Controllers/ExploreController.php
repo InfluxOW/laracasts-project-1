@@ -9,7 +9,7 @@ class ExploreController extends Controller
 {
     public function index()
     {
-        $users = User::paginate(50);
+        $users = User::paginate(10);
         return view('explore.index', compact('users'));
     }
 }

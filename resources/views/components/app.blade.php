@@ -16,7 +16,7 @@
 
                 @auth
                     <div class="lg:w-1/5">
-                        @include('tweets._friends-list')
+                        @include('tweets._following-list')
                     </div>
                 @endauth
             </div>
@@ -24,5 +24,8 @@
     </section>
     <x-slot name="scripts">
         {{ $scripts ?? '' }}
+    </x-slot>
+    <x-slot name="styles">
+        {{ $styles ?? '' }}
     </x-slot>
 </x-master>

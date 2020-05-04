@@ -6,7 +6,10 @@
     </div>
 
     <div>
-        <a href="{{ route('profiles.show', $tweet->user) }}"><h5 class="font-medium mb-4">{{ $tweet->user->name }}</h5></a>
+        <div class="flex mb-4 items-center">
+            <a href="{{ route('profiles.show', $tweet->user) }}"><h5 class="font-bold text-gray-700">{{ $tweet->user->name }}</h5></a>
+            <h5 class="text-xs ml-4">{{ $tweet->user->created_at->diffForHumans() }}</h5>
+        </div>
         <p class="text-sm">{{ $tweet->body }}</p>
         <x-likes :tweet="$tweet"/>
     </div>

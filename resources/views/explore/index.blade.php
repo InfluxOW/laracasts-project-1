@@ -1,14 +1,24 @@
 <x-app>
+    <ul class="gradient-list">
     @foreach ($users as $user)
-        <a href="{{ route('profiles.show', $user) }}">
-            <div class="flex items-center mb-5 hover:bg-gray-200 rounded-lg border border-gray-200">
-                <img src="{{ $user->getAvatar() }}" width="60" class="mr-4 rounded-lg">
-                <div>
-                    <h4 class="font-medium">{{ '@' . $user->username }}</h4>
+        <li>
+            <a href="{{ route('profiles.show', $user) }}">
+                <div class="flex items-center mb-5 hover:bg-gray-200 rounded-lg border border-gray-300">
+                    <img src="{{ $user->getAvatar() }}" width="60" class="mr-4 rounded-lg">
+                    <div>
+                        <h4 class="font-mono text-blue-500 text-sm">{{ '@' . $user->username }}</h4>
+                    </div>
                 </div>
-            </div>
-        </a>
+            </a>
+        </li>
     @endforeach
+    </ul>
 
-    {{ $users->links() }}
+    <x-slot name="styles">
+        <link href="{{ asset('css/list.css') }}" rel="stylesheet">
+    </x-slot>
+
+    <div class="mb-4">
+        {{ $users->links() }}
+    </div>
 </x-app>
