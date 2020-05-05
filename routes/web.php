@@ -21,7 +21,9 @@ Route::middleware('auth')->group(function () {
     Route::post('/tweets/{tweet}/like', 'TweetsController@like')->name('tweets.like');
     Route::post('/tweets/{tweet}/dislike', 'TweetsController@dislike')->name('tweets.dislike');
 
-    Route::post('/profiles/{user:username}/image-upload', 'ProfilesController@imageUpload')->name('profiles.image-upload');
+    // Route::post('/profiles/{user:username}/image-upload', 'UploadsController@store')->name('profiles.image-upload');
+    Route::post('/upload', 'UploadsController@store')->name('upload');
+
     Route::resource('profiles', 'ProfilesController')->only('show', 'edit', 'update')->parameters([
         'profiles' => 'user:username'
     ]);

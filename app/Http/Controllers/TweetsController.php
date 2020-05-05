@@ -3,11 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\TweetValidation;
+use App\Image;
+use App\Services\UploadService;
 use App\Tweet;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class TweetsController extends Controller
 {
+    public function __construct(UploadService $uploadService)
+    {
+        $this->uploadService = $uploadService;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -28,6 +36,8 @@ class TweetsController extends Controller
     public function store(TweetValidation $request)
     {
         $tweet = $request->user()->tweets()->create($request->only(['body']));
+
+        $this->uploadService->handle($request, $tweet, 'image');
 
         return redirect()->route('tweets.index');
     }

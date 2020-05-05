@@ -1,7 +1,7 @@
 <div class="border border-blue-400 rounded-lg px-8 py-6 mb-8">
-    {!! Form::open(['route' => 'tweets.store']) !!}
+    {!! Form::open(['route' => 'tweets.store', 'files' => true,]) !!}
     {{ Form::textarea('body', '', ['class' => 'w-full', 'placeholder' => 'Tell me anything', 'cols' => '', 'rows' => '', 'required']) }}
-
+    {{ Form::file('image', ['class' => 'p-2 w-full filepond', 'id' => 'image']) }}
     <hr class="my-4">
     <footer class="flex justify-between items-center">
         <img src="{{ currentUser()->getAvatar() }}" alt="" class="rounded-full mr-2" width="50" height="50">

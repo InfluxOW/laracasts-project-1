@@ -53,3 +53,15 @@ FilePond.registerPlugin(
     FilePondPluginFileEncode,
     FilePondPluginImageExifOrientation
 );
+
+FilePond.setOptions({
+    server: {
+        process: {
+            url: '/upload',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            timeout: 7000,
+        }
+    }
+});

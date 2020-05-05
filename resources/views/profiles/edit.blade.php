@@ -17,11 +17,6 @@
     {!! Form::close() !!}
 
     <x-slot name="scripts">
-        <script>
-            var username = "{{ $user->username }}";
-            var url = '/profiles/' + username + '/image-upload';
-            var app_url = "{{ env('APP_URL') }}";
-        </script>
         <script src="{{ asset('js/avatar.js') }}"></script>
         <script src="{{ asset('js/banner.js') }}"></script>
     </x-slot>
