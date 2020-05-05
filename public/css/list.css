@@ -1,0 +1,30 @@
+/*** VARIABLES ***/
+
+/* Colors */
+
+/*** EXTEND ***/
+
+/* box-shadow */
+
+ul.gradient-list > li {
+  box-shadow: 0.25rem 0.25rem 0.6rem rgba(0, 0, 0, 0.05), 0 0.5rem 1.125rem rgba(75, 0, 0, 0.05);
+}
+
+/*** STYLE ***/
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+ul.gradient-list {
+  list-style: none;
+}
+
+ul.gradient-list > li {
+  background: white;
+  min-height: 3rem;
+  position: relative;
+}
+
