@@ -4,6 +4,9 @@
 @import "~@fortawesome/fontawesome-free/scss/regular";
 @import '~filepond/dist/filepond.css';
 @import '~filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css';
+@import '~tailwindcss/dist/base.css';
+@import '~tailwindcss/dist/components.css';
+@import '~tailwindcss/dist/utilities.css';
 
 /*** FONTS ***/
 @import url(https://fonts.googleapis.com/css?family=Montserrat:900|Raleway:400,400i,700,700i);
