@@ -7,13 +7,14 @@
         "watch-poll": "npm run watch -- --watch-poll",
         "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --disable-host-check --config=node_modules/laravel-mix/setup/webpack.config.js",
         "prod": "npm run production",
-        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "postinstall": "npm run prod"
     },
     "devDependencies": {
         "axios": "^0.19",
         "bootstrap": "^4.0.0",
         "cross-env": "^7.0",
-        "jquery": "^3.5.0",
+        "jquery": "^3.5.1",
         "laravel-mix": "^5.0.1",
         "lodash": "^4.17.13",
         "popper.js": "^1.12",
@@ -35,7 +36,7 @@
         "filepond-plugin-image-resize": "^2.0.5",
         "filepond-plugin-image-transform": "^3.7.3",
         "filepond-plugin-image-validate-size": "^1.2.3",
-        "tailwindcss": "^1.4.0",
+        "tailwindcss": "^1.4.4",
         "turbolinks": "^5.2.0"
     }
 }
