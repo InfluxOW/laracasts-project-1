@@ -20,6 +20,5 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/list.scss', 'public/css')
     .copy('resources/css/menu.css', 'public/css')
     .options({
-        processCssUrls: false,
         postCss: [ tailwindcss('tailwind.config.js') ],
     });
