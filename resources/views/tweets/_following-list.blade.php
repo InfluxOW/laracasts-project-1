@@ -1,5 +1,5 @@
-<div class="bg-gray-200 border border-gray-300 rounded-lg p-4">
-    <h3 class="font-bold text-lg mb-4 text-center">Following</h3>
+<div class="bg-gray-200 border border-gray-300 rounded-lg p-4 text-center">
+    <h3 class="font-bold text-lg mb-4">Following</h3>
 
     <ul>
         @forelse (currentUser()->follows as $user)

@@ -17,7 +17,7 @@ class CreateLikesTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('tweet_id')->constrained()->cascadeOnDelete();
-            $table->boolean('liked');
+            $table->boolean('liked')->nullable();
             $table->timestamps();
             $table->unique(['user_id', 'tweet_id']);
         });

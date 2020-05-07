@@ -29,7 +29,11 @@ trait Likeable
         $like = Like::where('user_id', $user->id)->where('tweet_id', $this->id)->first();
 
         if ($like) {
-            $like->update(['liked' => $liked]);
+            if ($like->liked == !$liked || $like->liked === null) {
+                $like->update(['liked' => $liked]);
+            } else {
+                $like->update(['liked' => null]);
+            }
         } else {
             Like::create(['user_id' => $user->id, 'tweet_id' => $this->id, 'liked' => $liked]);
         }
@@ -42,11 +46,11 @@ trait Likeable
 
     public function isLikedBy(User $user)
     {
-        return $user->likes->where('tweet_id', $this->id)->where('liked', true)->count() === 1;
+        return $user->likes->where('tweet_id', $this->id)->whereNotNull('liked')->where('liked', true)->count() === 1;
     }
 
     public function isDislikedBy(User $user)
     {
-        return $user->likes->where('tweet_id', $this->id)->where('liked', false)->count() === 1;
+        return $user->likes->where('tweet_id', $this->id)->whereNotNull('liked')->where('liked', false)->count() === 1;
     }
 }
