@@ -1,5 +1,4 @@
 const mix = require('laravel-mix');
-const tailwindcss = require('tailwindcss');
 
 /*
  |--------------------------------------------------------------------------
@@ -18,7 +17,4 @@ mix.js('resources/js/app.js', 'public/js')
     .js(['resources/js/uploads/tweet-image.js'], 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .sass('resources/sass/list.scss', 'public/css')
-    .copy('resources/css/menu.css', 'public/css')
-    .options({
-        postCss: [ tailwindcss('tailwind.config.js') ],
-    });
+    .copy('resources/css/menu.css', 'public/css');
