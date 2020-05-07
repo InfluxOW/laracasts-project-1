@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\TweetValidation;
-use App\Image;
 use App\Services\UploadService;
 use App\Tweet;
 use Illuminate\Http\Request;
@@ -44,6 +43,17 @@ class TweetsController extends Controller
         return redirect()->route('tweets.index');
     }
 
+    public function destroy(Tweet $tweet)
+    {
+        $this->authorize($tweet);
+
+        $tweet->delete();
+
+        flash(__("Tweet has been deleted!"))->success();
+
+        return redirect()->route('tweets.index');
+    }
+
     public function like(Tweet $tweet)
     {
         $tweet->like(currentUser());
@@ -55,6 +65,6 @@ class TweetsController extends Controller
     {
         $tweet->dislike(currentUser());
 
-        return back();
+        return redirect()->route('tweets.index');
     }
 }

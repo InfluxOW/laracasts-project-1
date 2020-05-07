@@ -2,7 +2,7 @@
     <h3 class="font-bold text-lg mb-4">Following</h3>
 
     <ul>
-        @forelse (currentUser()->follows as $user)
+        @forelse (currentUser()->follows->load('avatar')->take(10) as $user)
             <li class="{{ $loop->last ? '' : ' mb-4' }}">
                 <div>
                     <a href="{{ route('profiles.show', $user) }}"  class="flex items-center text-sm hover:bg-opacity-0 rounded-full bg-gray-100 border border-gray-300 w-full">

@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::view('/', 'welcome');
 
 Route::middleware('auth')->group(function () {
-    Route::resource('tweets', 'TweetsController')->only('store', 'index');
+    Route::resource('tweets', 'TweetsController')->only('store', 'index', 'destroy');
     Route::post('/tweets/{tweet}/like', 'TweetsController@like')->name('tweets.like');
     Route::post('/tweets/{tweet}/dislike', 'TweetsController@dislike')->name('tweets.dislike');
 

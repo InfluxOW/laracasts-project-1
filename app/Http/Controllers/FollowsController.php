@@ -12,6 +12,9 @@ class FollowsController extends Controller
     {
         currentUser()->toggleFollow($user);
 
+        $action = currentUser()->isFollowing($user) ? 'followed' : 'unfollowed';
+        flash("You $action user @{$user->username} bla bla bla bla bla bla")->success();
+
         return back();
     }
 }

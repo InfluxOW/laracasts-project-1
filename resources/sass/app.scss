@@ -17,7 +17,11 @@ body {
   font-family: 'Raleway', sans-serif;
 }
 
+.box-x {
+    position:relative;
+}
 .screen-bottom {
-    position: absolute;
-    bottom: 0;
+    position:absolute;
+    bottom:0;
+    right: 0;
 }

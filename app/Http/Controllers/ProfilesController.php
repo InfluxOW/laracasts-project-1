@@ -34,6 +34,8 @@ class ProfilesController extends Controller
         $this->uploadService->handle($request, $user, 'avatar');
         $this->uploadService->handle($request, $user, 'banner');
 
+        flash('Your profile has been updated!')->success();
+
         return redirect()->route('profiles.show', compact('user'));
     }
 }

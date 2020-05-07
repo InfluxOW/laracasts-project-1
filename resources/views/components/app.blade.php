@@ -17,10 +17,10 @@
                 @auth
                     <div class="lg:w-1/5">
                         @include('tweets._following-list')
-                        @include('flash::message')
                     </div>
                 @endauth
             </div>
+            @include('flash::message')
         </main>
     </section>
     <x-slot name="scripts">
