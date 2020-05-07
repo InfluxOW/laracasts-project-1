@@ -17,7 +17,6 @@
         "jquery": "^3.5.1",
         "laravel-mix": "^5.0.1",
         "lodash": "^4.17.13",
-        "mix-tailwindcss": "^1.2.0",
         "popper.js": "^1.12",
         "resolve-url-loader": "^2.3.1",
         "sass": "^1.20.1",
@@ -37,7 +36,7 @@
         "filepond-plugin-image-resize": "^2.0.5",
         "filepond-plugin-image-transform": "^3.7.3",
         "filepond-plugin-image-validate-size": "^1.2.3",
-        "tailwindcss": "^1.4.4",
+        "tailwindcss": "^1.4.5",
         "turbolinks": "^5.2.0"
     }
 }
