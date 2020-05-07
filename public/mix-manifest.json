@@ -2,9 +2,9 @@
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
     "/css/list.css": "/css/list.css",
-    "/css/main.css": "/css/main.css",
     "/js/avatar.js": "/js/avatar.js",
     "/js/banner.js": "/js/banner.js",
     "/js/tweet-image.js": "/js/tweet-image.js",
-    "/css/menu.css": "/css/menu.css"
+    "/css/menu.css": "/css/menu.css",
+    "/css/main.css": "/css/main.css"
 }
