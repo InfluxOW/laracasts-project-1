@@ -1,4 +1,5 @@
 <x-master>
+    <x-errors/>
     <div class="container mx-auto flex justify-center">
         <div class="px-12 py-8 bg-gray-200 border border-gray-300 rounded-lg">
             <div class="font-medium text-lg mb-4">{{ __('Login') }}</div>

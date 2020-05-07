@@ -17,6 +17,7 @@
                 @auth
                     <div class="lg:w-1/5">
                         @include('tweets._following-list')
+                        @include('flash::message')
                     </div>
                 @endauth
             </div>

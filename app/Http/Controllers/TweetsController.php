@@ -39,6 +39,8 @@ class TweetsController extends Controller
 
         $this->uploadService->handle($request, $tweet, 'image');
 
+        flash('New tweet has been added!')->success();
+
         return redirect()->route('tweets.index');
     }
 

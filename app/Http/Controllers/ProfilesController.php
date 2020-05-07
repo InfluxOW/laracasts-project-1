@@ -13,7 +13,7 @@ class ProfilesController extends Controller
 {
     public function __construct(UploadService $uploadService)
     {
-        // $this->authorizeResource(User::class);
+        $this->authorizeResource(User::class);
         $this->uploadService = $uploadService;
     }
 
@@ -27,7 +27,7 @@ class ProfilesController extends Controller
         return view('profiles.edit', compact('user'));
     }
 
-    public function update(User $user, Request $request)
+    public function update(User $user, UserValidation $request)
     {
         $user->update($request->only('name', 'username', 'email', 'description'));
 

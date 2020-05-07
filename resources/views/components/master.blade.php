@@ -17,6 +17,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/menu.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     {{ $styles ?? '' }}
 </head>
 
@@ -29,7 +30,7 @@
     <script src="{{ asset('js/app.js') }}"></script>
     {{ $scripts ?? '' }}
     <script>
-        // $('div[role="alert"]').delay(2000).fadeOut(2000);
+        $('div[role="flash"]').delay(2000).fadeOut(2000);
     </script>
 </body>
 
