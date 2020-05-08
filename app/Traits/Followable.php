@@ -2,7 +2,9 @@
 
 namespace App\Traits;
 
+use App\Notifications\UserFollowed;
 use App\User;
+use Illuminate\Database\Eloquent\Builder;
 
 trait Followable
 {
@@ -13,11 +15,22 @@ trait Followable
 
     public function toggleFollow(User $user)
     {
-        return $this->follows()->toggle($user);
+        $this->follows()->toggle($user);
+
+        if ($this->isFollowing($user)) {
+            $user->notify(new UserFollowed($this));
+        }
     }
 
     public function isFollowing(User $user)
     {
         return $this->follows()->where('following_user_id', $user->id)->exists();
+    }
+
+    public function scopeFollowers(Builder $query)
+    {
+        return $query->whereHas('follows', function ($query) {
+            return $query->where('following_user_id', $this->id);
+        });
     }
 }

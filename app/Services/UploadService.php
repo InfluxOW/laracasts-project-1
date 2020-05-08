@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Image;
+use App\Tweet;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;

@@ -57,6 +57,14 @@
                 </span>
             </a>
         </li>
+        <li>
+            <a href="{{ route('notifications') }}">
+                <i class="fa fa-bell fa-2x nav-icon {{ currentUser()->unreadNotifications->count() > 0 ? 'text-red-800' : '' }}"></i>
+                <span class="nav-text">
+                    Notifications
+                </span>
+            </a>
+        </li>
     </ul>
 
     <ul class="logout">

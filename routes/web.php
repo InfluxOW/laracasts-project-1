@@ -32,6 +32,8 @@ Route::middleware('auth')->group(function () {
         'profiles' => 'user:username'
     ]);
 
+    Route::get('notifications', 'UserNotificationsController@show')->name('notifications');
+
     Route::resource('explore', 'ExploreController')->only('index');
 });
 

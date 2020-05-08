@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\TweetValidation;
+use App\Notifications\NewTweet;
 use App\Services\UploadService;
 use App\Tweet;
 use Illuminate\Http\Request;
@@ -37,6 +38,10 @@ class TweetsController extends Controller
         $tweet = $request->user()->tweets()->create($request->only(['body']));
 
         $this->uploadService->handle($request, $tweet, 'image');
+
+        $tweet->user->followers()->get()->map(function ($user) use ($tweet) {
+            return $user->notify(new NewTweet($tweet));
+        });
 
         flash('New tweet has been added!')->success();
 
