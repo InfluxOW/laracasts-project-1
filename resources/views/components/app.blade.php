@@ -23,10 +23,4 @@
             @include('flash::message')
         </main>
     </section>
-    <x-slot name="scripts">
-        {{ $scripts ?? '' }}
-    </x-slot>
-    <x-slot name="styles">
-        {{ $styles ?? '' }}
-    </x-slot>
 </x-master>

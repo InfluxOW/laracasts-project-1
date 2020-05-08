@@ -2,7 +2,7 @@
 
     @include('tweets._publish-tweet-panel')
     <x-timeline :tweets='$tweets'/>
-    <x-slot name="scripts">
+    @push('scripts')
         <script src="{{ asset('js/tweet-image.js') }}"></script>
         <script>
             function textCounter(field,field2,maxlimit)
@@ -16,6 +16,6 @@
                 }
             }
         </script>
-    </x-slot>
+    @endpush
 </x-app>
 

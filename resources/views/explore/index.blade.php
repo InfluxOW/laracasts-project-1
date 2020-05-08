@@ -14,9 +14,9 @@
     @endforeach
     </ul>
 
-    <x-slot name="styles">
+    @push('styles')
         <link href="{{ asset('css/list.css') }}" rel="stylesheet">
-    </x-slot>
+    @endpush
 
     <div class="mb-4">
         {{ $users->links() }}

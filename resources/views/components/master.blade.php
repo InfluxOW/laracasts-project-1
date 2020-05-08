@@ -19,7 +19,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/menu.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
-    {{ $styles ?? '' }}
+    @stack('styles')
 </head>
 
 <body>
@@ -29,10 +29,10 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    {{ $scripts ?? '' }}
     <script>
         $('div[role="flash"]').delay(2000).fadeOut(2000);
     </script>
+    @stack('scripts')
 </body>
 
 </html>

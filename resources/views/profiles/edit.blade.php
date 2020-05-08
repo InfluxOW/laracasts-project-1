@@ -16,10 +16,10 @@
         <a href="{{ route('profiles.show', $user) }}" class="hover:underline">Cancel</a>
     {!! Form::close() !!}
 
-    <x-slot name="scripts">
+    @push('scripts')
         <script src="{{ asset('js/avatar.js') }}"></script>
         <script src="{{ asset('js/banner.js') }}"></script>
-    </x-slot>
+    @endpush
 </x-app>
 
 {{-- {{ Form::label('password', 'Password', ['class' => 'block uppercase font-medium  text-xs text-gray-700 mb-2']) }}
