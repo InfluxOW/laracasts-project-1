@@ -24,7 +24,10 @@ class TweetValidation extends FormRequest
     public function rules()
     {
         return [
-            'body' => 'required|max:255'
+            'body' => 'required|max:255',
+            'user' => 'exists:users,id',
+            'likes' => 'exists:likes,id',
+            'dislikes' => 'exists:likes,id',
         ];
     }
 }

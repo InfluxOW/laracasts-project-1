@@ -70,6 +70,6 @@ class TweetsController extends Controller
     {
         $tweet->dislike(currentUser());
 
-        return redirect()->route('tweets.index');
+        return back();
     }
 }

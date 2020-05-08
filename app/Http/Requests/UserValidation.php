@@ -37,7 +37,10 @@ class UserValidation extends FormRequest
             // 'password' => ['required', 'string', 'min:8', 'confirmed', 'max:255'],
             'description' => [
                 'string', 'nullable', 'max:1000', 'min:10'
-            ]
+            ],
+            'tweets' => 'exists:tweets,id',
+            'likes' => 'exists:likes,id',
+            'follows' => 'exists:users,id'
         ];
     }
 }
