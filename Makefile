@@ -11,10 +11,9 @@ setup: install
 	php artisan key:generate
 	touch database/database.sqlite
 	php artisan migrate
+	npm install && npm run dev
 seed:
 	php artisan db:seed
-queue:
-	php artisan queue:work --queue=high,default,low --timeout=1800
 clear:
 	php artisan route:clear
 	php artisan view:clear

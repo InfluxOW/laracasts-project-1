@@ -1,7 +1,7 @@
 # Tweety
 [https://influx-tweety.herokuapp.com/](https://influx-tweety.herokuapp.com/)
 # Development Setup
-1. Run `make setup` to install dependencies, generate .env file, create SQLite database, apply migrations.
+1. Run `make setup` to install dependencies, generate .env file, create SQLite database, apply migrations and etc.
 2. Run `make seed` if you want to seed the database.
 3. Fill `.env` keys that are responsible for AWS connection (they starts with AWS_). Set `APP_DEBUG` as `true` if you want Debugbar to be enabled.
 4. Run `make run` to launch web server (http://localhost:8000).
