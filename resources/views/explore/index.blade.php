@@ -1,7 +1,7 @@
 <x-app>
     <ul class="gradient-list">
     @foreach ($users as $user)
-        <li>
+        <li class="rounded-lg">
             <a href="{{ route('profiles.show', $user) }}">
                 <div class="flex items-center mb-5 hover:bg-gray-200 rounded-lg border border-gray-300">
                     <img src="{{ $user->getAvatar() }}" width="60" class="mr-4 rounded-lg">
