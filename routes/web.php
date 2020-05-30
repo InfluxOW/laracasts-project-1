@@ -14,14 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'welcome');
+Route::view('/', 'welcome')->name('welcome');
 
 Route::middleware('auth')->group(function () {
     Route::resource('tweets', 'TweetsController')->only('store', 'index', 'destroy');
     Route::post('/tweets/{tweet}/like', 'TweetsController@like')->name('tweets.like');
     Route::post('/tweets/{tweet}/dislike', 'TweetsController@dislike')->name('tweets.dislike');
 
-    // Route::post('/profiles/{user:username}/image-upload', 'UploadsController@store')->name('profiles.image-upload');
     Route::post('/upload', 'UploadsController@store')->name('upload');
 
     Route::resource('profiles', 'ProfilesController')->only('show', 'edit', 'update')->parameters([
@@ -38,3 +37,5 @@ Route::middleware('auth')->group(function () {
 });
 
 Auth::routes();
+Route::get('login/github', 'Auth\Social\GithubController@redirectToProvider')->name('github.login');
+Route::get('login/github/callback', 'Auth\Social\GithubController@handleProviderCallback')->name('github.callback');

@@ -12,8 +12,11 @@
                 {{ Form::label('remember', 'Remember Me', ['class' => 'uppercase font-medium  text-xs text-gray-700 mb-2']) }}
                 {{ Form::checkbox('remember', 'remember', '') }}
                 <br>
-                <div>
+                <div class="flex items-center justify-between">
                     {{ Form::button('Submit', ['class' => 'bg-blue-500 shadow py-2 px-4 text-white rounded mt-2 mr-2', 'type' => 'submit']) }}
+                    <a href="{{ route('github.login') }}" class="flex bg-green-500 shadow py-2 px-4 text-white rounded mt-2">
+                        Login With Github <img src="{{ url('images/octoface.svg') }}" alt="" class="ml-2" />
+                    </a>
                 </div>
             {!! Form::close() !!}
         </div>

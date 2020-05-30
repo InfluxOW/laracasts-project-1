@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'username', 'avatar_url', 'banner_url', 'description', 'avatar_id', 'banner_id'
+        'name', 'email', 'password', 'username', 'avatar_url', 'description', 'github_id'
     ];
 
     /**
@@ -72,7 +72,7 @@ class User extends Authenticatable
 
     public function getAvatar()
     {
-        return $this->avatar->url ?? "https://api.adorable.io/avatars/200/abott@adorable{$this->username}";
+        return $this->avatar->url ?? $this->avatar_url ?? "https://api.adorable.io/avatars/200/abott@adorable{$this->username}";
     }
 
     public function getBanner()
