@@ -26,17 +26,14 @@ class UploadService
         }
     }
 
-    public function upload($file, $folder, $type = 'image')
+    public function upload($file, $folder)
     {
         $path = Storage::disk('s3')->put($folder, $file, 'public');
         $url = Storage::disk('s3')->url($path);
 
-        if ($type === 'image') {
-            $image = Image::make([
+        return Image::make([
                 'url' => $url,
                 'type' => Str::singular($folder)
                 ]);
-            return $image;
-        }
     }
 }
