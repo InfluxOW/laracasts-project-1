@@ -1,5 +1,9 @@
 # Tweety
 [https://influx-tweety.herokuapp.com/](https://influx-tweety.herokuapp.com/)
+
+Twitter clone made by [Laracasts.com](https://laracasts.com/series/laravel-6-from-scratch) tutorials. \
+*Untested D: but seems to work fine*
+
 # Development Setup
 1. Run `make setup` to install dependencies, generate .env file, create SQLite database, apply migrations and etc.
 2. Run `make seed` if you want to seed the database.

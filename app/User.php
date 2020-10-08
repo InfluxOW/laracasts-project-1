@@ -72,7 +72,9 @@ class User extends Authenticatable
 
     public function getAvatar()
     {
-        return $this->avatar->url ?? $this->avatar_url ?? "https://api.adorable.io/avatars/200/abott@adorable{$this->username}";
+        return $this->avatar->url ??
+            $this->avatar_url ??
+            "https://api.adorable.io/avatars/200/abott@adorable{$this->username}";
     }
 
     public function getBanner()
